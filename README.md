@@ -1,2 +1,2 @@
 # rankum
-A gem to compare search ranks using flexible quality rank metrics
+A tool to compare search ranks using flexible quality rank metrics

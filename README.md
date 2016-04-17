@@ -7,5 +7,9 @@ A tool to compare search ranks using flexible quality rank metrics. It helps to 
 
 ## Usage
 
-### Command-line mode
+##### Command-line mode
+
+```shell
+$ rankum -m FCP -a FileAdaptor -pr perfect_rank.txt -ar my_rank.txt 
+```
 

@@ -3,7 +3,7 @@ A tool to compare search ranks using flexible quality rank metrics. It helps to 
 
 ## Rank Metrics
 
-### FCP (Fraction Concordant pairs)
+##### FCP (Fraction Concordant pairs)
 
 ## Usage
 

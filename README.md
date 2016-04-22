@@ -11,5 +11,5 @@ It helps to evaluate how good your search results are ranked when compared to a 
 ##### Command-line mode
 
 ```shell
-$ rankum -m FCP -r RankFileReader -pr perfect_rank.txt -ar my_rank.txt
+$ rankum -m FCP -r RankFileReader -p perfect_rank.txt -a my_rank.txt
 ```

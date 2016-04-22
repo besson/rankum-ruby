@@ -1,4 +1,5 @@
 require "interactor"
+
 require_relative "../utils/fcp_pair"
 
 module Rankum

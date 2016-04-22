@@ -31,4 +31,3 @@ cli = RankumCLI.new
 cli.parse_options
 
 result = Rankum::Runners::RankumCLI.call(cli.config)
-puts result.value

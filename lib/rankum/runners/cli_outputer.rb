@@ -1,4 +1,5 @@
 require "interactor"
+require 'paint'
 
 module Rankum
   module Runners
@@ -8,6 +9,7 @@ module Rankum
       def call
         context.fail! unless raw_value
         context.value = round(raw_value)
+        outputs
       end
 
       private
@@ -17,6 +19,11 @@ module Rankum
 
       def round value
         (value * 100).round(2)
+      end
+
+      def outputs
+        color = raw_value > 0.7 ? :green : :red
+        puts "Similarity: #{Paint["#{context.value} %", color, :bright]}"
       end
     end
   end

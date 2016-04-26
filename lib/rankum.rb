@@ -28,8 +28,3 @@ module Rankum
       :description => "Actual Rank file (only valid for RankFileReader strategy)"
   end
  end
-
-cli = Rankum::CLI.new
-cli.parse_options
-
-result = Rankum::Runners::RankumCLI.call(cli.config)

@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'rankum'
+
+cli = Rankum::CLI.new
+cli.parse_options
+
+result = Rankum::Runners::RankumCLI.call(cli.config)

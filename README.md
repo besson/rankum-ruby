@@ -19,6 +19,8 @@ gem install rankum
 ## Usage
 
 ##### Command-line mode
+
+Options:
 ```shell
 -m, --metric metric                             Metric used to compare search ranks
 -a, --actual_rank actual_rank_file_path         Actual Rank file (only for RankFileReader strategy)

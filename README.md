@@ -22,7 +22,7 @@ gem install rankum
 ```shell
 -m, --metric metric                             Metric used to compare search ranks
 -a, --actual_rank actual_rank_file_path         Actual Rank file (only for RankFileReader strategy)
--p,  --perfect_rank perfect_rank_file_path      Perfect Rank file (only for RankFileReader strategy)
+-p, --perfect_rank perfect_rank_file_path       Perfect Rank file (only for RankFileReader strategy)
 -r, --rank_reader rank_reader                   Strategy to to read your ranks
 ```
 

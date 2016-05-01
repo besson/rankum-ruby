@@ -24,6 +24,7 @@ module Rankum
       def output
         lines = []
         lines << "Rankum"
+        lines << "------------"
         lines << "Metric: #{context.metric}"
 
         color = raw_value > 0.7 ? :green : :red

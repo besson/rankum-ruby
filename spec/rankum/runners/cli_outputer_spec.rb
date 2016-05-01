@@ -18,8 +18,9 @@ module Rankum
 
           expect(result).to be_a_success
           expect(output[0]).to eq("Rankum")
-          expect(output[1]).to match(/Metric: [\s|\S].*/)
-          expect(output[2]).to eq("Similarity: #{Paint["42.42 %", :red, :bright]}")
+          expect(output[1]).to match(/-.*/)
+          expect(output[2]).to match(/Metric: [\s|\S].*/)
+          expect(output[3]).to eq("Similarity: #{Paint["42.42 %", :red, :bright]}")
         end
       end
 

@@ -6,6 +6,6 @@ cli = Rankum::CLI.new
 cli.parse_options
 
 result = Rankum::Runners::RankumCLI.call(cli.config)
-result.ouput.each do |line|
+result.output.each do |line|
   puts line
 end

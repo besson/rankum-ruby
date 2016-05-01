@@ -31,3 +31,4 @@ Options:
 ```shell
 $ rankum -m FCP -r RankFileReader -p perfect_rank.txt -a my_rank.txt
 ```
+![Rankum output](http://thecodeknight.herokuapp.com/img/rankum_output.png)

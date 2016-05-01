@@ -9,7 +9,7 @@ module Rankum
       def call
         context.fail! unless raw_value
         context.value = round(raw_value)
-        outputs
+        context.output = output
       end
 
       private
@@ -21,10 +21,16 @@ module Rankum
         (value * 100).round(2)
       end
 
-      def outputs
+      def output
+        lines = []
+        lines << "Rankum"
+        lines << "Metric: #{context.metric}"
+
         color = raw_value > 0.7 ? :green : :red
-        puts "Similarity: #{Paint["#{context.value} %", color, :bright]}"
+        lines << "Similarity: #{Paint["#{context.value} %", color, :bright]}"
+        lines
       end
+
     end
   end
 end

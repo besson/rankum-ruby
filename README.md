@@ -6,9 +6,9 @@ It helps to evaluate how good your search results are ranked when compared to a 
 To help you out, Rankum extract some metrics to "measure" search rank relevancy.
 
 ##### FCP (Fraction Concordant pairs)
-Basically, this metric measures the quantity of pairs occuring on perfect rank that also occur on actual rank.
-Suppose search result A, B, C, D and E items. For this pefect rank, we have 10 pairs (AB, AC, AD, AE, BC, BD, BE, CD, CE, DE). 
-**FCP measures the fraction (percentage) of perfect rank pairs that also ocurr on actual ranks.**
+Basically, this metric counts how many pairs occuring on perfect rank are also on actual search rank.
+Supposing search results are A, B, C, D and E items. For this pefect rank, we have 10 pair combinations (AB, AC, AD, AE, BC, BD, BE, CD, CE, DE).
+**FCP measures the fraction (percentage) of these pairs on actual ranks.**
 
 ## Install
 

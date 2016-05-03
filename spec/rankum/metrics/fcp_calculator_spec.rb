@@ -13,7 +13,7 @@ module Rankum
         let(:actual_rank) { perfect_rank }
 
         it "should get 1.0 as FCP value" do
-          calculator = FCPCalculator.call(rank_reader: reader)
+          calculator = FCPCalculator.run(rank_reader: reader)
           expect(calculator).to be_a_success
           expect(calculator.value).to eq(1.0)
         end
@@ -23,7 +23,7 @@ module Rankum
         let(:actual_rank) { ["F", "G", "H", "I", "J"] }
 
         it "should get 0 as FCP value" do
-          calculator = FCPCalculator.call(rank_reader: reader)
+          calculator = FCPCalculator.run(rank_reader: reader)
           expect(calculator).to be_a_success
           expect(calculator.value).to eq(0)
         end
@@ -33,7 +33,7 @@ module Rankum
         let(:actual_rank) { ["E", "D", "C", "B", "A"] }
 
         it "should get 0 as FCP value" do
-          calculator = FCPCalculator.call(rank_reader: reader)
+          calculator = FCPCalculator.run(rank_reader: reader)
           expect(calculator).to be_a_success
           expect(calculator.value).to eq(0)
         end
@@ -43,7 +43,7 @@ module Rankum
         let(:actual_rank) { ["B", "A", "C", "E", "D"] }
 
         it "should get 0.8 as FCP value" do
-          calculator = FCPCalculator.call(rank_reader: reader)
+          calculator = FCPCalculator.run(rank_reader: reader)
           expect(calculator).to be_a_success
           expect(calculator.value).to eq(0.8)
         end

@@ -15,7 +15,7 @@ module Rankum
         end
 
         it "should set up parameters" do
-          result = CLISetup.call(cli_params)
+          result = CLISetup.run(cli_params)
 
           expect(result).to be_a_success
           expect(result.rank_reader).to be_a_kind_of(Rankum::Readers::RankFileReader)

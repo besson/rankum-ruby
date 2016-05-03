@@ -1,3 +1,5 @@
+require "ostruct"
+
 module Rankum
   module Utils
     module Interactor
@@ -9,11 +11,10 @@ module Rankum
       def execute
         begin
           yield
-          @context.send("success?=",true)
-          @context.send("fail?=",false)
+          exit if @context.fail?
+          success!
          rescue Exception => e
-          @context.send("success?=",false)
-          @context.send("fail?=",true)
+           fail!
         end
 
         @context
@@ -21,6 +22,16 @@ module Rankum
 
       def context
         @context
+      end
+
+      def fail!
+        @context.send("success?=",false)
+        @context.send("fail?=",true)
+      end
+
+      def success!
+        @context.send("success?=",true)
+        @context.send("fail?=",false)
       end
 
     end

@@ -1,8 +1,6 @@
 require_relative "../utils/fcp_pair"
 require_relative "../utils/interactor"
 
-require "ostruct"
-
 module Rankum
   module Metrics
     class FCPCalculator

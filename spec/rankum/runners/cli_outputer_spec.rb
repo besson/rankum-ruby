@@ -6,14 +6,14 @@ module Rankum
 
       context "when has a result value" do
         it "should round value" do
-          result = CLIOutputer.call(value: 0.4242)
+          result = CLIOutputer.run(value: 0.4242)
 
           expect(result).to be_a_success
           expect(result.value).to eq(42.42)
         end
 
         it "should return output lines" do
-          result = CLIOutputer.call(value: 0.4242, metric: "FCP")
+          result = CLIOutputer.run(value: 0.4242, metric: "FCP")
           output = result.output
 
           expect(result).to be_a_success
@@ -26,8 +26,8 @@ module Rankum
 
       context "when result is nil" do
         it "should fail" do
-          result = CLIOutputer.call
-          expect(result).to be_a_failure
+          result = CLIOutputer.run
+          expect(result).to be_a_fail
         end
       end
 

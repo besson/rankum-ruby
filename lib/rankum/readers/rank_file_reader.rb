@@ -27,7 +27,9 @@ module Rankum
 
       private
       def to_array rank_path
-         IO.readlines(rank_path).map { |item| item.strip }
+         IO.readlines(rank_path).each_with_index.map do |item, i|
+           "#{i}#{item.strip}"
+         end
       end
 
     end

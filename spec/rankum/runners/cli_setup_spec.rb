@@ -23,8 +23,8 @@ module Rankum
 
         it "should add ranks to rank file reader" do
           reader = CLISetup.call(cli_params).rank_reader
-          list = ("A".."Z").to_a.each_with_index.map {|item, i| "#{i}#{item}"}
-          reversed_list = ("A".."Z").to_a.reverse.each_with_index.map {|item, i| "#{i}#{item}"}
+          list = ("A".."Z").to_a
+          reversed_list = ("A".."Z").to_a.reverse
 
           expect(reader.perfect_rank).to eq(list)
           expect(reader.actual_rank).to eq(reversed_list)

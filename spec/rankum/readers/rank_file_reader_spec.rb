@@ -14,7 +14,7 @@ module Rankum
         end
 
         it "should add position number to each item rank" do
-          expected_list = ("A".."Z").each_with_index.map {|item, i| "#{i}#{item}"}
+          expected_list = ("A".."Z").to_a
           expect(subject.perfect_rank).to eq(expected_list)
         end
       end
@@ -28,7 +28,7 @@ module Rankum
         end
 
         it "should add position number to each item rank" do
-          expected_list = ("A".."Z").to_a.reverse.each_with_index.map {|item, i| "#{i}#{item}"}
+          expected_list = ("A".."Z").to_a.reverse
           expect(subject.actual_rank).to eq(expected_list)
         end
       end
@@ -36,7 +36,7 @@ module Rankum
       context "when has repeated pairs" do
         let(:rank_path) { "spec/fixtures/repeated_rank.txt" }
         before { subject.add_perfect_rank_path(rank_path) }
-        let(:expected_list) { ["0hot", "1hot", "2fresh", "3vip", "4piv"] }
+        let(:expected_list) { ["hot", "hot", "fresh", "vip", "piv"] }
 
         it "should returned a ordered list" do
           expect(subject.perfect_rank).to eq(expected_list)

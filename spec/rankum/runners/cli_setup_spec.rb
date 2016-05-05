@@ -23,9 +23,11 @@ module Rankum
 
         it "should add ranks to rank file reader" do
           reader = CLISetup.call(cli_params).rank_reader
+          list = ("A".."Z").to_a
+          reversed_list = ("A".."Z").to_a.reverse
 
-          expect(reader.perfect_rank).to eq(("A".."Z").to_a)
-          expect(reader.actual_rank).to eq(("A".."Z").to_a.reverse)
+          expect(reader.perfect_rank).to eq(list)
+          expect(reader.actual_rank).to eq(reversed_list)
         end
       end
     end

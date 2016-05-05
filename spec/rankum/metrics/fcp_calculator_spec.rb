@@ -49,6 +49,28 @@ module Rankum
         end
       end
 
+      context "when has duplicated pairs and one wrong position" do
+        let(:perfect_rank) { ["hot", "hot", "fresh", "vip", "piv"] }
+        let(:actual_rank) { ["hot", "hot", "fresh", "piv", "vip"] }
+
+        it "should get 0.9 as FCP value" do
+          calculator = FCPCalculator.call(rank_reader: reader)
+          expect(calculator).to be_a_success
+          expect(calculator.value).to eq(0.9)
+        end
+      end
+
+      context "when duplicated pairs do not occur on actual rank" do
+        let(:perfect_rank) { ["hot", "hot", "fresh", "vip", "piv"] }
+        let(:actual_rank) { ["hot", "fresh", "fresh", "vip", "piv"] }
+
+        it "should get 0.7 as FCP value" do
+          calculator = FCPCalculator.call(rank_reader: reader)
+          expect(calculator).to be_a_success
+          expect(calculator.value).to eq(0.7)
+        end
+      end
+
     end
   end
 end

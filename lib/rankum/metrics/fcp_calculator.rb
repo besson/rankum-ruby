@@ -8,24 +8,34 @@ module Rankum
       include Interactor
 
       def call
-        build_perfect_rank_pairs
-        build_actual_rank_pairs
-        calculate_fcp
+        context.value = calculate_fcp
       end
 
       private
-      def build_perfect_rank_pairs
-        @perfect_rank_pairs ||= Rankum::Utils::FCPPair.build_from_array(perfect_rank)
+      def perfect_rank_pairs
+        @perfect_rank_pairs ||= Rankum::Utils::FCPPair.to_h(perfect_rank)
       end
 
-      def build_actual_rank_pairs
-        @actual_rank_pairs ||= Rankum::Utils::FCPPair.build_from_array(actual_rank)
+      def actual_rank_pairs
+        @actual_rank_pairs ||= Rankum::Utils::FCPPair.to_a(actual_rank)
       end
 
       def calculate_fcp
-        total_pairs = @perfect_rank_pairs.count
-        differences = (@perfect_rank_pairs - @actual_rank_pairs).count
-        context.value = (total_pairs - differences).to_f / total_pairs.to_f
+        total_pairs = perfect_rank_pair_count
+
+        actual_rank_pairs.each do |pair|
+          if perfect_rank_pairs[pair] > 0
+            perfect_rank_pairs[pair] -= 1
+          end
+        end
+
+        not_matched_pairs = perfect_rank_pair_count
+        result = (total_pairs - not_matched_pairs).to_f / total_pairs
+        result > 0 ? result : 0
+      end
+
+      def perfect_rank_pair_count
+        perfect_rank_pairs.reduce(0) { |acc, (k,v)| acc += v }
       end
 
       def rank_reader

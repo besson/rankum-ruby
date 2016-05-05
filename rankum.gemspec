@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = "rankum"
-  spec.version     = "0.0.2"
+  spec.version     = "0.0.3"
 
   spec.author      = "Felipe Besson"
   spec.email       = "flpbesson@gmail.com"

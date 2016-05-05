@@ -10,7 +10,12 @@ module Rankum
         before { subject.add_perfect_rank_path(perfect_rank_path) }
 
         it "should convert to a list" do
-          expect(subject.perfect_rank).to eq(("A".."Z").to_a)
+          expect(subject.perfect_rank).to be_a_kind_of(Array)
+        end
+
+        it "should add position number to each item rank" do
+          expected_list = ("A".."Z").to_a
+          expect(subject.perfect_rank).to eq(expected_list)
         end
       end
 
@@ -19,7 +24,22 @@ module Rankum
         before { subject.add_actual_rank_path(actual_rank_path) }
 
         it "should convert to a list" do
-          expect(subject.actual_rank).to eq(("A".."Z").to_a.reverse)
+          expect(subject.actual_rank).to be_a_kind_of(Array)
+        end
+
+        it "should add position number to each item rank" do
+          expected_list = ("A".."Z").to_a.reverse
+          expect(subject.actual_rank).to eq(expected_list)
+        end
+      end
+
+      context "when has repeated pairs" do
+        let(:rank_path) { "spec/fixtures/repeated_rank.txt" }
+        before { subject.add_perfect_rank_path(rank_path) }
+        let(:expected_list) { ["hot", "hot", "fresh", "vip", "piv"] }
+
+        it "should returned a ordered list" do
+          expect(subject.perfect_rank).to eq(expected_list)
         end
       end
 

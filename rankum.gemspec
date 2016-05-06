@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
 
   spec.author      = "Felipe Besson"
   spec.email       = "flpbesson@gmail.com"
-  spec.date        = "2016-04-22"
+  spec.date        = "2016-05-06"
   spec.summary     = "Measure search rank quality"
   spec.description = "A gem to compare search ranks using flexible quality rank metrics"
   spec.homepage    = "https://github.com/besson/rankum"

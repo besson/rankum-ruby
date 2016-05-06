@@ -6,11 +6,18 @@ require_relative "cli_outputer"
 module Rankum
   module Runners
     class RankumCLI
-      include Interactor::Organizer
+      include Rankum::Utils::Interactor
 
-      organize Rankum::Runners::CLISetup,
-               Rankum::Metrics::FCPCalculator,
-               Rankum::Runners::CLIOutputer
+      def self.run context
+        RankumCLI.new(context).run
+      end
+
+      def run
+        organize Rankum::Runners::CLISetup,
+                 Rankum::Metrics::FCPCalculator,
+                 Rankum::Runners::CLIOutputer
+      end
+
     end
   end
 end

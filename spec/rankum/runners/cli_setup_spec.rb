@@ -15,14 +15,14 @@ module Rankum
         end
 
         it "should set up parameters" do
-          result = CLISetup.call(cli_params)
+          result = CLISetup.run(cli_params)
 
           expect(result).to be_a_success
           expect(result.rank_reader).to be_a_kind_of(Rankum::Readers::RankFileReader)
         end
 
         it "should add ranks to rank file reader" do
-          reader = CLISetup.call(cli_params).rank_reader
+          reader = CLISetup.run(cli_params).rank_reader
           list = ("A".."Z").to_a
           reversed_list = ("A".."Z").to_a.reverse
 

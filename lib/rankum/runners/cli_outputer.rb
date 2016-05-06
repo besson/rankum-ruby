@@ -1,15 +1,21 @@
-require "interactor"
+require_relative "../utils/interactor"
 require 'paint'
 
 module Rankum
   module Runners
     class CLIOutputer
-      include Interactor
+      include Rankum::Utils::Interactor
 
-      def call
-        context.fail! unless raw_value
-        context.value = round(raw_value)
-        context.output = output
+      def self.run context={}
+        CLIOutputer.new(context).run
+      end
+
+      def run
+        execute do
+          fail! unless raw_value
+          context.value = round(raw_value)
+          context.output = output
+        end
       end
 
       private

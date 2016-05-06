@@ -14,7 +14,6 @@ Gem::Specification.new do |spec|
   spec.test_files  = spec.files.grep(/^spec/)
   spec.executables = spec.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
 
-  spec.add_dependency("interactor", "~> 3.1")
   spec.add_dependency("mixlib-cli", "~> 1.5")
   spec.add_dependency("paint", "~> 1.0")
 end

@@ -1,14 +1,17 @@
-require "interactor"
-
 require_relative "../utils/fcp_pair"
+require_relative "../utils/interactor"
 
 module Rankum
   module Metrics
     class FCPCalculator
-      include Interactor
+      include Rankum::Utils::Interactor
 
-      def call
-        context.value = calculate_fcp
+      def self.run context
+        FCPCalculator.new(context).run
+      end
+
+      def run
+        execute { context.value = calculate_fcp }
       end
 
       private

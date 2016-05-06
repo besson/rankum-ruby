@@ -54,7 +54,7 @@ module Rankum
         let(:actual_rank) { ["hot", "hot", "fresh", "piv", "vip"] }
 
         it "should get 0.9 as FCP value" do
-          calculator = FCPCalculator.call(rank_reader: reader)
+          calculator = FCPCalculator.run(rank_reader: reader)
           expect(calculator).to be_a_success
           expect(calculator.value).to eq(0.9)
         end
@@ -65,7 +65,7 @@ module Rankum
         let(:actual_rank) { ["hot", "fresh", "fresh", "vip", "piv"] }
 
         it "should get 0.7 as FCP value" do
-          calculator = FCPCalculator.call(rank_reader: reader)
+          calculator = FCPCalculator.run(rank_reader: reader)
           expect(calculator).to be_a_success
           expect(calculator.value).to eq(0.7)
         end

@@ -22,7 +22,7 @@ module Rankum
         end
 
         it "should add ranks to rank file reader" do
-          reader = CLISetup.call(cli_params).rank_reader
+          reader = CLISetup.run(cli_params).rank_reader
           list = ("A".."Z").to_a
           reversed_list = ("A".."Z").to_a.reverse
 

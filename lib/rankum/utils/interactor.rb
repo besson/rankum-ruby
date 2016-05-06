@@ -20,6 +20,17 @@ module Rankum
         @context
       end
 
+      def organize *interactors
+        interactors.each do |interactor|
+          context_hash = @context.to_h
+          context = interactor.run(context_hash)
+
+          @context = OpenStruct.new(context_hash.merge!(context.to_h))
+        end
+
+        @context
+      end
+
       def context
         @context
       end

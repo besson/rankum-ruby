@@ -1,4 +1,3 @@
-require "interactor"
 require_relative "../metrics/fcp_calculator"
 require_relative "cli_setup"
 require_relative "cli_outputer"
